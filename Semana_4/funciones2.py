@@ -14,4 +14,4 @@ def es_vocal(letra):
     :param letra: str la letra a evaluar
     :return: True si es una vocal, False de lo contrario
     '''
-    return letra in 'aeiouAEIOU'
+    return len(letra) == 1 and letra in 'aeiouAEIOU'
