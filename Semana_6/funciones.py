@@ -62,7 +62,8 @@ def un_segundo(hora, minuto, segundo):
             if siguiente_hora >= 24:
                 siguiente_hora = 0
 
-    return 'Son las {0} horas {1} minutos y {2} segundos'.format(siguiente_hora, siguiente_minuto, siguiente_segundo)
+    return 'Son las {0} horas {1} minutos y {2} segundos'\
+        .format(siguiente_hora, siguiente_minuto, siguiente_segundo)
 
 
 def len_adecuada(palabra, desde, hasta):
@@ -83,9 +84,5 @@ def len_adecuada(palabra, desde, hasta):
     :param hasta:
     :return:
     """
-    return 'La longitud de {0}, ' \
-           '{1}está entre {2} y {3}'.format(
-        palabra,"" if desde <= len(palabra) <= hasta else "no ",
-        desde,
-        hasta)
-
+    return 'La longitud de {0}, {1}está entre {2} y {3}'\
+        .format(palabra, "" if desde <= len(palabra) <= hasta else "no ", desde, hasta)
