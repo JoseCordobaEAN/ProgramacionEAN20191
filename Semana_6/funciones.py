@@ -65,3 +65,27 @@ def un_segundo(hora, minuto, segundo):
     return 'Son las {0} horas {1} minutos y {2} segundos'.format(siguiente_hora, siguiente_minuto, siguiente_segundo)
 
 
+def len_adecuada(palabra, desde, hasta):
+    """
+
+    (str, int, int) -> str
+
+    Valida si la longitud de la palabra está en el rango deseado
+
+    >>> len_adecuada('hola', 0, 100)
+    'La longitud de hola, está entre 0 y 100'
+    >>> len_adecuada('hola', 1, 2)
+    'La longitud de hola, no está entre 1 y 2'
+
+
+    :param palabra:
+    :param desde:
+    :param hasta:
+    :return:
+    """
+    return 'La longitud de {0}, ' \
+           '{1}está entre {2} y {3}'.format(
+        palabra,"" if desde <= len(palabra) <= hasta else "no ",
+        desde,
+        hasta)
+
