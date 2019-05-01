@@ -8,7 +8,7 @@ def ingresar_vector():
 
     :return: list of num el vector ingresado por el usuario
     """
-    vector = [input('¿Cual es el nombre de su vector? ')]
+    vector = []
 
     while True:
         num = input('Ingrese su escalar o "s" para terminar ')
@@ -20,7 +20,7 @@ def ingresar_vector():
                 print(num, 'no es un escalar')
         else:
             break
-    print('su vector', vector[0], 'es', vector[1:])
+    print('su vector es', vector)
     return vector
 
 
@@ -45,6 +45,14 @@ def op_producto_escalar():
           producto_escalar(escalar, vectores[seleccion]))
 
 
+def op_suma_vectores():
+    mostrar_vectores()
+    v1 = input('seleccione el primer vector ')
+    v2 = input('seleccione el segundo vector ')
+
+    print(suma_vectores(vectores[v1], vectores[v2]))
+
+
 def principal():
 
     MENSAJE = '''Seleccione una opcion:
@@ -52,6 +60,7 @@ def principal():
     1. Ingresar Vector
     2. Mostrar Vectores
     3. Producto escalar
+    4. Suma Vectores
     '''
 
     while True:
@@ -61,14 +70,17 @@ def principal():
             print('Gracielas')
             break
         elif opcion == '1':
+            nombre = input('¿Cual es el nombre de su vector? ')
             vector = ingresar_vector()
-            vectores[vector[0]] = vector[1:]
+            vectores[nombre] = vector
 
         elif opcion == '2':
             mostrar_vectores()
 
         elif opcion == '3':
             op_producto_escalar()
+        elif opcion == '4':
+            op_suma_vectores()
 
         else:
             print('Seleccione una opcion valida')
