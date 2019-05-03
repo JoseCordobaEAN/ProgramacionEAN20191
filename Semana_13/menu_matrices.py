@@ -1,6 +1,8 @@
 from Semana_10.menu import ingresar_vector
+from Semana_13.uso_archivos import *
 
-matrices = {}
+RUTA_MATRICES = 'mis_matrices.json'
+matrices = leer(RUTA_MATRICES)
 
 def leer_matriz():
     """
@@ -12,33 +14,49 @@ def leer_matriz():
         entrada = input('Desea ingresar una fila? s/n ')
         if entrada == 'n':
             break
-        resultado.append(ingresar_vector()[1:])
+        resultado.append(ingresar_vector())
     return resultado
 
 
-while True:
-
-    MENU = """
-    **********Menu**********
-    0. Salir
-    1. Ingresar Matriz
-    2. Ver Matrices
-    ************************
+def principal():
     """
+    Funcion principal del menu
 
-    seleccion = input(MENU)
-    if seleccion == '0':
-        print('Suerte')
-        break
-    elif seleccion == "1":
-        nombre = input('cual es el nombre de su matriz ')
-        matriz = leer_matriz()
-        matrices[nombre] = matriz
-    elif seleccion == "2":
-        print('Sus matrices')
-        for matriz in matrices:
-            print(matriz, "=")
-            print(matrices[matriz])
+    :return: none
+    """
+    while True:
+
+        MENU = """
+        **********Menu**********
+        0. Salir
+        1. Ingresar Matriz
+        2. Ver Matrices
+        ************************
+        """
+
+        seleccion = input(MENU)
+        if seleccion == '0':
+            print('Suerte')
+            break
+        elif seleccion == "1":
+            nombre = input('cual es el nombre de su matriz ')
+            matriz = leer_matriz()
+            matrices[nombre] = matriz
+        elif seleccion == "2":
+            print('Sus matrices')
+            for matriz in matrices:
+                print(matriz, "=")
+                print(matrices[matriz])
+        else:
+            print("Seleccion invalida")
+
+
+    if guardar(RUTA_MATRICES, matrices):
+        print('Se guardaron exitosamente sus matrices')
     else:
-        print("Seleccion invalida")
+        print('No se han podido guardar las matrices')
+
+
+if __name__ == '__main__':
+    principal()
 
