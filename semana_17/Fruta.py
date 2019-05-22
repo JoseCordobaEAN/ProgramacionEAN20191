@@ -3,7 +3,12 @@ class Fruta:
     sabor = ''
     cantidad = 0
     pelada = False
-    __TIPOS__ = ['banano', 'manzana', 'pera', 'piña', 'papaya']
+    __TIPOS__ = {'banano': [5, 100],
+                 'manzana': [6, 50],
+                 'pera': [5, 70],
+                 'piña': [60, 1500],
+                 'papaya': [130, 2200]
+                 }
 
 
     def __init__(self, sabor, cantidad):
@@ -13,7 +18,7 @@ class Fruta:
         :param sabor: cadena con el tipo de fruta
         :param cantidad: La cantidad de fruta en inventario
         """
-        self.sabor = sabor
+        self.sabor = sabor if sabor in self.__TIPOS__ else 'banano'
         self.cantidad = cantidad
 
 

@@ -15,7 +15,10 @@ class TestFruta(TestCase):
 
 
     def test_cortar(self):
-        self.fail()
+        dado = Fruta('papaya', 1000)
+        espero = 130
+        real = dado.cortar(1)
+        self.assertEqual(espero, real)
 
     def test_licuar(self):
         self.fail()
