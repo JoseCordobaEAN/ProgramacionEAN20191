@@ -40,7 +40,10 @@ class Fruta:
         :param cantidad_usar: la cantidad de fruta a usar
         :return: la cantidad obtenida para esa fruta
         '''
-        pass
+        if self.pelada:
+            return cantidad_usar * self.__TIPOS__[self.sabor][0]
+        else:
+            raise ValueError('La fruta no esta pelada')
 
 
     def licuar(self, cantidad_usar):
@@ -50,4 +53,7 @@ class Fruta:
         :param cantidad_usar: la cantidad de fruta a usar
         :return: la cantidad de zumo obtenida para esa fruta
         """
-        pass
+        if self.pelada:
+            return cantidad_usar * self.__TIPOS__[self.sabor][1]
+        else:
+            raise ValueError('La fruta no esta pelada')
